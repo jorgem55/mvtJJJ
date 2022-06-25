@@ -54,7 +54,7 @@ ROOT_URLCONF = 'jjjmvt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['D:\Curso Python 2022\31085\mvtJJJ\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

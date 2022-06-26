@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flia</title>
+    <style>
+      table,
+      td,
+      tr {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Mi familia</h2>
+    <table cellspacing="0">
+      <tr>
+        <td>Nombre</td>
+        <td>Edad</td>
+        <td>Nacimiento</td>
+      </tr>
+      {% comment %} {% for familia in lista_familia %} {% endcomment %}
+      <tr>
+        <td>{{familia}}</td>
+        {% comment %}
+        <td>{{familia.nombre}}</td>
+        <td>{{familia.edad}}</td>
+        {% endcomment %}
+      </tr>
+      {% comment %} {% endfor %} {% endcomment %}
+    </table>
+  </body>
 </html>

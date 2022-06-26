@@ -1,0 +1,40 @@
+MVT
+01- crear el entorno virtual (py -m venv <nombre> {venv} )
+02- activarlo (. venv/Scripts/activate)						// Start.sh
+03- crear el .gitignore
+04- git init
+05- pip install django (Si no tenemos django instalado)
+06- django-admin startproject <nombre> (nombre similar a carpeta gral)
+07- Reubicar carpeta y manage.py
+08- git add .
+09- py manage.py migrate #genera .db y demas files
+10- py manage.py runserver #inicia servidor
+... Crear a mano views.py...
+11- git commit -m 'Iniciando' (graba)
+12- git branch -M main (nombrar rama master como main)
+13- git remote add origin https://github.com/jorgem55/mvtJJJ.git (repo de github, nombre = a la carpeta)
+14- git push -u origin main
+
+*** Loader de htmls
+... setting.py:
+TEMPLATES = [
+'DIRS': [os.path.join(BASE_DIR, 'templates')],
+...
+
+15- py manage.py startapp vistafamiliares
+
+*** Mover views.py dentro de carpeta de nueva app
+*** Crear nuevo urls.py y mover contenido de viejo archivo urls.py
+*** Declarar mi aplicacion:
+
+En... setting.py:
+INSTALLED_APPS = [
+'vistafamiliares'
+...
+
+En... urls.py general/viejo:
+path('', include(vistafamiliares.urls)),
+...
+
+16- py manage.py makemigrations			#Define codigo relacional con la db
+17- py manage.py migrate 		#Aplica cambios en la db

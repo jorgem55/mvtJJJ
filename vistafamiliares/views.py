@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+from vistafamiliares.models import Familia
 
 def inicio(request):
     return HttpResponse('''<h1>MVT - Python Django</h1>
@@ -15,8 +16,15 @@ def pepe(request):
     
     return HttpResponse(f'{render1}')
 
-def familia(request):
+def mi_familia(request):
     template1 = loader.get_template('familiares.html')
-    render1=template1.render()
+    nombre=""
+    edad=0
+        
+    familia = Familia(nombre='Juan',edad=26)
+    # familia.save()
+    # lista_familia = familia.objects.all()
+    # render1=template1.render({'Nombre': nombre, 'Edad': edad})
+    render1=template1.render({'Nombre': familia})
     
-    return HttpResponse(f'{render1}')
+    return HttpResponse(render1)

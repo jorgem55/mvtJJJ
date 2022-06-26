@@ -1,21 +1,22 @@
-from datetime import datetime
-from multiprocessing import context
-from unittest import loader
 from django.http import HttpResponse
-from django.template import Template
-from django.template import Context
+from django.template import loader
 
 def inicio(request):
-    return HttpResponse('<h1>MVT</h1>')
+    return HttpResponse('''<h1>MVT - Python Django</h1>
+                        <h3>Lista de alumnos:</h3>
+                        <li>Jonatan</li>
+                        <li>Jonas</li>
+                        <li>Jorge</li>
+                        ''')
 
 def pepe(request):
-    template1 = loader.get_template('home.html')
-    render1=template1.render({'nombre':'Momia','edad':4598})
-    # archivo = open(r'D:\Curso Python 2022\31085\mvt_JFJMJZ\templates\home.html') #v1
-    # template1= Template(archivo.read())#v1
-    # archivo.close()#v1
+    template1 = loader.get_template('consigna.html')
+    render1=template1.render()    
     
-    # context1= Context() #v1
-    # render1=template1.render(context1) #v1
+    return HttpResponse(f'{render1}')
+
+def familia(request):
+    template1 = loader.get_template('familiares.html')
+    render1=template1.render()
     
-    return HttpResponse(f'Mi template: {render1}')
+    return HttpResponse(f'{render1}')

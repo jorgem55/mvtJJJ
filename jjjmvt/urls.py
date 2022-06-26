@@ -20,5 +20,5 @@ from .views import inicio, pepe
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio),
-    path('pepe/', pepe),
+    path('consigna/', pepe),
 ]

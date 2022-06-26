@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+import os
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -54,7 +55,8 @@ ROOT_URLCONF = 'jjjmvt.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['D:\Curso Python 2022\31085\mvtJJJ\templates'],
+        # 'DIRS': ['D:\Curso Python 2022\31085\mvtJJJ\templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

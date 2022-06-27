@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flia</title>
+    <title>Mi familia</title>
     <style>
       table,
       td,
@@ -17,19 +17,34 @@
     <h2>Mi familia</h2>
     <table cellspacing="0">
       <tr>
-        <td>Nombre</td>
-        <td>Edad</td>
-        <td>Nacimiento</td>
+        <td><b>Nombre</b></td>
+        <td><b>Edad</b></td>
+        <td><b>Nacimiento</b></td>
       </tr>
-      {% comment %} {% for familia in lista_familia %} {% endcomment %}
-      <tr>
-        <td>{{familia}}</td>
-        {% comment %}
-        <td>{{familia.nombre}}</td>
-        <td>{{familia.edad}}</td>
-        {% endcomment %}
-      </tr>
-      {% comment %} {% endfor %} {% endcomment %}
+      {% comment %} {% for familia in lista_familia %}
+        <tr>
+          <td>{{familia.nombre}}</td>
+          <td>{{familia.edad}}</td>
+          <td>{{familia.fecha_nacimiento}}</td>
+        </tr>
+      {% endfor %} {% endcomment %}
     </table>
+    <h2>{{familia}}</h2>
+    {% for Familia in lista_familia %}
+      <h4>{{familia.edad}}</h4>
+    {% endfor %}
+    <br></br>
+    <a href="../inicio" name="button" class="btn btn-success">
+      >> Inicio</a>
+      <br></br>
+    <a href="../consigna" name="button" class="btn btn-success">
+      >> Consigna</a>
+      <br></br>
+    <a href="." name="button" class="btn btn-success">
+      >> Familia</a>
+      <br></br>
+    <a href="../agregar_familiar" name="button" class="btn btn-success">
+      >> Agregar familiar (Al azar) </a>
+      
   </body>
 </html>

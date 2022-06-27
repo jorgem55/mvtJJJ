@@ -1,30 +1,43 @@
+import random
 from django.http import HttpResponse
 from django.template import loader
 from vistafamiliares.models import Familia
 
 def inicio(request):
-    return HttpResponse('''<h1>MVT - Python Django</h1>
-                        <h3>Lista de alumnos:</h3>
-                        <li>Jonatan</li>
-                        <li>Jonas</li>
-                        <li>Jorge</li>
-                        ''')
-
-def pepe(request):
-    template1 = loader.get_template('consigna.html')
+    template1 = loader.get_template('inicio.html')
     render1=template1.render()
     
     return HttpResponse(f'{render1}')
 
+def consigna(request):
+    template1 = loader.get_template('consigna.html')
+    render1=template1.render()
+    return HttpResponse(f'{render1}')
+
 def mi_familia(request):
     template1 = loader.get_template('familiares.html')
-    nombre=""
-    edad=0
-        
-    familia = Familia(nombre='Juan',edad=26)
-    # familia.save()
-    # lista_familia = familia.objects.all()
-    # render1=template1.render({'Nombre': nombre, 'Edad': edad})
-    render1=template1.render({'Nombre': familia})
+    
+    lista_familia = Familia.objects.all()
+    render1=template1.render({'familia': lista_familia})
+    
+    return HttpResponse(render1)
+
+def agregar_familiar(request):
+    template1 = loader.get_template('familiares.html')
+    render1=template1.render()
+    
+    int=random.randrange(4)
+    if int == 0:
+        familia = Familia(nombre='Juan',edad=26,fecha_nacimiento='1996-08-11')
+        familia.save()
+    elif int == 1:
+        familia = Familia(nombre='Cecilia',edad=20,fecha_nacimiento='2002-12-21')
+        familia.save()
+    elif int == 2:
+        familia = Familia(nombre='Lorena',edad=35,fecha_nacimiento='1986-08-10')
+        familia.save()
+    else:
+        familia = Familia(nombre='Mario',edad=56,fecha_nacimiento='1966-02-06')
+        familia.save()
     
     return HttpResponse(render1)

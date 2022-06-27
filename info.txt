@@ -27,7 +27,7 @@ TEMPLATES = [
 *** Crear nuevo urls.py y mover contenido de viejo archivo urls.py
 *** Declarar mi aplicacion:
 
-En... setting.py:
+En... setting.py: # paso obligatorio para luego ejecutar makemigrations
 INSTALLED_APPS = [
 'vistafamiliares'
 ...
@@ -38,3 +38,4 @@ path('', include(vistafamiliares.urls)),
 
 16- py manage.py makemigrations			#Define codigo relacional con la db
 17- py manage.py migrate 		#Aplica cambios en la db
+18- pip freeze > requirements.txt

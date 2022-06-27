@@ -21,18 +21,14 @@
         <td><b>Edad</b></td>
         <td><b>Nacimiento</b></td>
       </tr>
-      {% comment %} {% for familia in lista_familia %}
+      {% for familiar in lista_familia %}
         <tr>
-          <td>{{familia.nombre}}</td>
-          <td>{{familia.edad}}</td>
-          <td>{{familia.fecha_nacimiento}}</td>
+          <td>{{familiar.nombre}}</td>
+          <td>{{familiar.edad}}</td>
+          <td>{{familiar.fecha_nacimiento}}</td>
         </tr>
-      {% endfor %} {% endcomment %}
+      {% endfor %}
     </table>
-    <h2>{{familia}}</h2>
-    {% for Familia in lista_familia %}
-      <h4>{{familia.edad}}</h4>
-    {% endfor %}
     <br></br>
     <a href="../inicio" name="button" class="btn btn-success">
       >> Inicio</a>

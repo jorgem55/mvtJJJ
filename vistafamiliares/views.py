@@ -17,14 +17,12 @@ def consigna(request):
 def mi_familia(request):
     template1 = loader.get_template('familiares.html')
     
-    lista_familia = Familia.objects.all()
-    render1=template1.render({'familia': lista_familia})
+    db_familia = Familia.objects.all()
+    render1=template1.render({'lista_familia': db_familia})
     
     return HttpResponse(render1)
 
 def agregar_familiar(request):
-    template1 = loader.get_template('familiares.html')
-    render1=template1.render()
     
     int=random.randrange(4)
     if int == 0:
@@ -40,4 +38,4 @@ def agregar_familiar(request):
         familia = Familia(nombre='Mario',edad=56,fecha_nacimiento='1966-02-06')
         familia.save()
     
-    return HttpResponse(render1)
+    return HttpResponse('<h3>Se agregó familiar a la DB</h3>')
